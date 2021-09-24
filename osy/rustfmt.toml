@@ -1,0 +1,12 @@
+# indent_style = "Block"
+# reorder_imports = false
+
+fn_single_line = true
+hard_tabs = true
+indent_style = "Visual"
+inline_attribute_width = 50
+match_arm_blocks = false
+space_after_colon = false
+space_before_colon = false
+where_single_line = true
+chain_width = 60
