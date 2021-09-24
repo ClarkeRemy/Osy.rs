@@ -9,6 +9,6 @@ path = "src/osy.rs"
 
 [[bin]]
 name = "osy_compiler"
-path = "src/bin/osy_compiler"
+path = "src/bin/osy_compiler.rs"
 
 [dependencies]
