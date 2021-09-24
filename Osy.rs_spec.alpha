@@ -646,6 +646,24 @@ true
 //                 y: e @ 5..=8 }
 //           _ => ()              }
 
+# suggestion from Orson for match syntax
+// https://en.wikipedia.org/wiki/Lambda_calculus#Substitution
+foo().is_ok()              x [Ok(_) => true, false]
+foo().ok()                 x [Ok(x) => Some(x), None]
+foo().err()                x [Err(x) => Some(x), None]
+foo().map_or(d, f)         x [Ok(x) => Ok(f(x)), d]
+foo().unwrap()             x [Ok(x) => x, !]
+foo().flatten()            x [Ok(o) => o, Err(e) => Err(e)]
+foo().contains(x)          x [Ok(y) => x == y, false]
+foo().expect("oh no")      x [Ok(x) => x, panic!("oh no")]
+foo().transpose()          x [Ok(Some(s)) => Some(Ok(s)), Ok(None) => None, e => Some(e)]
+foo().cloned()             x [Ok(o) => Ok(o.clone())]
+// the "=>" is suffient for expression
+// with only default this would be ambiguous with indexing x[0] 
+// might be fine, indexing is curently x.[0] 
+// ambiguous with "x :f y [0]"  "x :f y[0]"
+
+
 # range syntax is the same 
               // right now nothing requires two consequetive '.'s
               // if there is an issue, "_.." might be the solution
